@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Zinger Burger AR Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zinger Burger AR</title>
 
   <script type="module"
     src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
@@ -11,31 +12,73 @@
   <style>
     body {
       margin: 0;
-      background: #f5f5f5;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
     }
 
     model-viewer {
       width: 100vw;
       height: 100vh;
+      background: transparent;
+    }
+
+    #info-card {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 220px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+
+    #info-card h2 {
+      margin: 0 0 12px 0;
+      font-size: 20px;
+    }
+
+    #info-card p {
+      margin: 8px 0;
+      font-size: 15px;
+    }
+
+    .ar-button {
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 14px 22px;
+      font-size: 16px;
+      cursor: pointer;
     }
   </style>
 </head>
 
 <body>
 
-<model-viewer
-  src="./zinger_burger.glb"
-  ar
-  ar-modes="scene-viewer quick-look webxr"
-  camera-controls
-  auto-rotate
-  shadow-intensity="1">
+  <div id="info-card">
+    <h2>🍔 Zinger Burger</h2>
+    <p>💰 Price: ₹249</p>
+    <p>🔥 Calories: 650 Cal</p>
+    <p>⭐ Rating: 4.6/5</p>
+    <p>🌶️ Spice Level: Medium</p>
+  </div>
 
-  <button slot="ar-button">
-    🍔 View in AR
-  </button>
+  <model-viewer
+    src="./zinger_burger.glb"
+    ar
+    ar-modes="scene-viewer quick-look webxr"
+    camera-controls
+    auto-rotate
+    shadow-intensity="1">
 
-</model-viewer>
+    <button slot="ar-button" class="ar-button">
+      🍔 View in AR
+    </button>
+
+  </model-viewer>
 
 </body>
 </html>
