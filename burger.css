@@ -1,14 +1,26 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+model-viewer {
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+}
+
+/* Specification Card - Top Right */
 #info-card {
   position: absolute;
   top: 20px;
   right: 20px;
   width: 220px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
   padding: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   z-index: 10;
-  color: white;
-  text-shadow:
-    0 0 10px rgba(0,0,0,0.8),
-    0 0 20px rgba(0,0,0,0.6);
 }
 
 #info-card h2 {
@@ -19,4 +31,48 @@
 #info-card p {
   margin: 8px 0;
   font-size: 16px;
+}
+
+/* AR Button - Bottom Center */
+.ar-button {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 16px 28px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 20;
+
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  #info-card {
+    width: 190px;
+    padding: 12px;
+    top: 15px;
+    right: 15px;
+  }
+
+  #info-card h2 {
+    font-size: 20px;
+  }
+
+  #info-card p {
+    font-size: 14px;
+  }
+
+  .ar-button {
+    width: 220px;
+    padding: 14px 20px;
+    font-size: 16px;
+    bottom: 25px;
+  }
 }
